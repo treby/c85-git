@@ -4,7 +4,7 @@ Basic usage
 - の：じゃあここからは早速実際にGitを試していきましょう。
 - の：Linuxは言うに及ばず、最近のMacの場合は最初からgitが入ってるからターミナル上で使えるわ。
 - は：Windowsの場合はどうするのです？
-- の：普通にCygwinとかでいい気がするけど、今後の課題ね。時間があったら調べましょう。
+- の：[Gitbash](http://git-scm.com/download/win)を導入すると良さそうね。
 ```
 
 ## git init
@@ -35,6 +35,17 @@ nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 ## git diff
+コミットやワーキングツリー間の差分を表示する。
+
+ステージングエリアとワーキングツリーの差分を表示する。
+```bash
+% git diff
+```
+
+ステージングエリアとコミットの差分を表示する。
+```bash
+% git diff --staged
+```
 
 
 ## git add
@@ -44,12 +55,23 @@ nothing added to commit but untracked files present (use "git add" to track)
 % git add .
 ```
 
+実行前に、`git status`や`git diff`などを使って、どのような変更がステージングエリアに移るのかを確認するよう心がけたい。
+
+可能であれば、`git add &lt;File name&gt;`のようにファイル名のパスを指定したい。
+
 ## git rm
 ワーキングツリーとインデックスからファイルを削除する。
 
 git管理に置かれているファイルを単純に削除しただけではリポジトリ上から消すことができない。
 
 そこで`git rm`コマンドを使用することで消したという情報をステージングに移すことができる。
+
+既に実際のファイルを消しているがリポジトリに残っている場合は、
+```bash
+% git rm --cached &lt;File name&gt;
+```
+
+のようにすれば良い。
 
 ## git mv
 対象ファイルを移動／名前変更する。
@@ -73,9 +95,34 @@ git管理に置かれているファイルを単純に削除しただけでは�
 ## git branch
 ブランチをリスト表示もしくは作成もしくは削除する。
 
+ブランチを作成する。
+```bash
+% git branch develop
+```
+
+ブランチリストを表示する。
+```bash
+% git branch
+  develop
+  * master
+```
+
 ## git checkout
 ブランチを変更する。
 
+
+```bash
+% git branch
+  develop
+  * master
+% git checkout develop
+Switched to branch 'develop'
+% git branch
+* develop
+  master
+```
+
+なお、`-b`オプションを使うことでブランチの作成と変更を同時に行うことができる。すなわち、
 ```
 % git branch feature/awesome
 % git checkout feature/awesome
@@ -84,8 +131,7 @@ git管理に置かれているファイルを単純に削除しただけでは�
 ```
 % git checkout -b feature/awesome
 ```
-に置き換えることが可能である。
-
+に置き換えられる。
 
 ## git log
 コミットログを表示する。

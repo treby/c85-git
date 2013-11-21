@@ -17,9 +17,27 @@ Tips
 Contributeする上で便利なGitHubの機能。
 
 #### fork
-forkボタンを押すだけ。
+forkボタンを押すことで、その時のリポジトリを自分のリポジトリにコピーすることができる。
+
+なお、実際に作業を始める際は、オリジナルのリポジトリに`origin`、自分のリポジトリに`self`などのリモート名をつけると便利。
+
+ここで、オリジナルのリポジトリが`treby/c85-git.git`、forkしたリポジトリが`example/c85-git.git`と想定すると、
+```bash
+% git clone git@github.com:example/c85-git.git
+% git remote rename origin self
+% git remote add origin git@github.com:treby/c85-git.git
+```
+
+もしくは、
+```bash
+% git clone git@github.com:treby/c85-git.git
+% git remote add self git@github.com:example/c85-git.git
+```
+
+とすれば良いだろう。
 
 #### Pull Request
+コードレビューの履歴を残すことができる。
 
 ### Contributeの始め方
 ベストプラクティス的な。
