@@ -11,7 +11,7 @@ Basic usage
 現在のディレクトリ以下のgit管理を開始する。
 
 ```bash
-% git init 
+% git init
 Initialized empty Git repository in /Users/treby/c85-git/.git/
 ```
 
@@ -47,6 +47,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 % git diff --staged
 ```
 
+例えば、`git add`したファイルなどを表示できる。
 
 ## git add
 対象ファイルをインデックス(ステージングエリア)に移す。
@@ -57,7 +58,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 実行前に、`git status`や`git diff`などを使って、どのような変更がステージングエリアに移るのかを確認するよう心がけたい。
 
-可能であれば、`git add &lt;File name&gt;`のようにファイル名のパスを指定したい。
+可能であれば、`git add <file>...`のようにファイル名のパスを指定すると間違いがなく確実である。
 
 ## git rm
 ワーキングツリーとインデックスからファイルを削除する。
@@ -68,7 +69,7 @@ git管理に置かれているファイルを単純に削除しただけでは�
 
 既に実際のファイルを消しているがリポジトリに残っている場合は、
 ```bash
-% git rm --cached &lt;File name&gt;
+% git rm --cached <file>...
 ```
 
 のようにすれば良い。
@@ -144,6 +145,7 @@ Switched to branch 'develop'
 ワーキングディレクトリに加えられた変更をstashする(こっそりしまう、隠す、蓄える)。
 
 ```
-- は：
-- の：例えば
+- は：git stashはどういう時に使うのです？
+- の：例えばちょっと修正を入れたけれど、別の方法も試したい場合なんかに使ったりするわね。
+- の：あくまで差分で保存されるから、あるブランチで一旦stashした差分を別のブランチに適用するときなどにも使えるわね。
 ```
