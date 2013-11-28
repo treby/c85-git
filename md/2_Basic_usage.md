@@ -7,6 +7,8 @@ Basic usage
 - の：[Gitbash](http://git-scm.com/download/win)を導入すると良さそうね。
 ```
 
+
+
 ## git init
 現在のディレクトリ以下のgit管理を開始する。
 
@@ -143,6 +145,16 @@ Switched to branch 'develop'
 
 ## git stash
 ワーキングディレクトリに加えられた変更をstashする(こっそりしまう、隠す、蓄える)。
+
+stashする。
+```bash
+% git stash
+```
+
+stashした内容を適用する。
+```bash
+% git stash pop
+```
 
 ```
 - は：git stashはどういう時に使うのです？
