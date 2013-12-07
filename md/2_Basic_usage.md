@@ -7,7 +7,7 @@ Basic usage
 - の：[Gitbash](http://git-scm.com/download/win)を導入すると良さそうね。
 ```
 
-
+Git環境は導入できているものとして、話を進める。(Mac環境であれば、ターミナルを起動すれば使えるはず)
 
 ## git init
 現在のディレクトリ以下のgit管理を開始する。
@@ -18,6 +18,8 @@ Initialized empty Git repository in /Users/treby/c85-git/.git/
 ```
 
 `.git`以下がリポジトリの実体である。
+
+具体的にはオブジェクトが入っているようなので、詳しく調べてみると面白いだろう（Referenceに細かい話が紹介されているリソースへのリンクを載せる）。
 
 ## git status
 現在のワーキングツリーの状態を表示する。
@@ -35,6 +37,16 @@ Initialized empty Git repository in /Users/treby/c85-git/.git/
 #	md/
 nothing added to commit but untracked files present (use "git add" to track)
 ```
+
+### Changes to be committed
+コミットされる変更のことである。ここで変更とは、ファイルの作成(create)、修正(modify)、削除(delete)、名前変更(rename)などのことを指す。
+
+### Changes not staged for commit
+ステージングエリアに上がっていない変更のことである。このままコミットを行っても、これらの変更はリポジトリに適用されない。
+
+### Untracked files
+Git管理下に置かれていないファイルのことである。
+
 
 ## git diff
 コミットやワーキングツリー間の差分を表示する。
@@ -102,6 +114,7 @@ git管理に置かれているファイルを単純に削除しただけでは�
 ```bash
 % git branch develop
 ```
+このコマンドにより、developブランチが作成される。
 
 ブランチリストを表示する。
 ```bash
@@ -161,3 +174,6 @@ stashした内容を適用する。
 - の：例えばちょっと修正を入れたけれど、別の方法も試したい場合なんかに使ったりするわね。
 - の：あくまで差分で保存されるから、あるブランチで一旦stashした差分を別のブランチに適用するときなどにも使えるわね。
 ```
+
+## git grep
+Git管理下に置かれたファイルを検索する。現在使えていないが、将来的に使っていきたいコマンドの一つである。
