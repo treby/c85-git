@@ -20,6 +20,29 @@ Forkボタンを押すことで、その時のリポジトリを自分のリポ�
 あるリポジトリのあるブランチに対して、コードをマージしてもらえないか依頼できる機能。
 変更内容は差分としてみることができるため、ここでコードレビューをすることができる。
 
+Pull Requestを出す際にcommitを一本化すべきだという文化が一部ではあるようだ。
+参考までにcommitを一つにまとめてPull Requestを投げる際のやり方を以下に示す。
+
+まず、Pull Requestを出す先（ここではdevelopブランチ）を最新の状態に更新する。
+
+```bash
+$ git checkout develop
+$ git pull --rebase origin develop
+```
+
+次にPull Request用の新しいブランチを切る。
+
+```bash
+$ git checkout -b feature/something_awesome
+```
+
+最後に実際に変更が適用されているブランチの内容を取得し、commitする。
+
+```bash
+$ git merge --squash feature/original_something_awesome
+$ git commit -m 'Implemented something awesome.'
+```
+
 ## Contributeの始め方
 ここでは筆者がコードをコラボレーションする際にしていることを順を追って紹介する。
 
@@ -84,8 +107,6 @@ GitHub上で適切なところにPull Requestを投げる。
 ## ブランチの切り方
 ブランチの切り方のベストプラクティスとして、ここでは[A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)で紹介されているモデルを紹介する。
 
-
-
 ### メインブランチ
 中央リポジトリは永遠の生涯ずっと、2つのメインブランチを保持する。
 
@@ -134,5 +155,5 @@ Hotfixブランチはmasterから分岐し、developとmasterにマージされ�
 
 Hotfixブランチは現在の製品バージョンにあるクリティカルなバグを解決しなければならないときなどに使われる。
 
-### ブランチを切ることで
+### このようにブランチを切ることで
 プロジェクトの開発者で全体像を共有することができるだろう。
