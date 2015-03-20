@@ -19,4 +19,4 @@ References
 1. [git による分散作業パターン](http://labs.gree.jp/blog/2013/12/9773/)
 1. [A successful Git branch model](http://nvie.com/posts/a-successful-git-branching-model/)
    1. [見えないチカラ: A successful Git branching model を翻訳しました](http://keijinsonyaban.blogspot.jp/2010/10/successful-git-branching-model.html)
-1. [GitHub トレーニングチームから学ぶ Git の内部構造](https://gist.github.com/OrgaChem/7482397)
+1. [GitHub トレーニングチームから学ぶ Git の内部構造](https://gist.github.com/kuniwak/7482397)
